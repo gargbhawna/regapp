@@ -8,10 +8,7 @@ from flask_pymongo import PyMongo
 from flask import render_template
 
 app = Flask(__name__)
-app.config["MONGO_URI"] ="mongodb+srv://bhawna28:gargpass@cluster0-jte0f.mongodb.net/test?retryWrites=true&w=majority"
-app.config['RECAPTCHA_PUBLIC_KEY'] = '6LcBD-MUAAAAACjhf8kmXMEpF0bdFwbz51aRFOi_'
-app.config['RECAPTCHA_PRIVATE_KEY'] = '6LcBD-MUAAAAABA6qizuw12lhxM14YqfZXcDitPr'
-mongo = PyMongo(app)
+
 
 
 @app.route('/', methods=['POST','GET'])
