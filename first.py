@@ -9,14 +9,14 @@ from flask import render_template
 
 app = Flask(__name__)
 app.config["MONGO_URI"] ="mongodb+srv://bhawna28:gargpass@cluster0-jte0f.mongodb.net/test?retryWrites=true&w=majority"
-app.config['RECAPTCHA_PUBLIC_KEY'] = '6LcBD-MUAAAAACjhf8kmXMEpF0bdFwbz51aRFOi_'
-app.config['RECAPTCHA_PRIVATE_KEY'] = '6LcBD-MUAAAAABA6qizuw12lhxM14YqfZXcDitPr'
+app.config['RECAPTCHA_PUBLIC_KEY'] = ''
+app.config['RECAPTCHA_PRIVATE_KEY'] = ''
 mongo = PyMongo(app)
 
 
 @app.route('/', methods=['POST','GET'])
 def hello_world():
-    sitekey = "6LcBD-MUAAAAACjhf8kmXMEpF0bdFwbz51aRFOi_"
+    sitekey = ""
     if request.method == 'POST':
         client = pymongo.MongoClient("mongodb+srv://bhawna28:gargpass@cluster0-jte0f.mongodb.net/test?retryWrites=true&w=majority")
         db = client.test_regis
@@ -58,7 +58,7 @@ def hello_world():
 
 def is_human(captcha_response):
 
-    secret = "6LcBD-MUAAAAABA6qizuw12lhxM14YqfZXcDitPr"
+    secret = ""
     payload = {'response':captcha_response, 'secret':secret}
     response = requests.post("https://www.google.com/recaptcha/api/siteverify", payload)
     response_text = json.loads(response.text)
