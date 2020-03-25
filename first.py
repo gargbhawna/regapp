@@ -4,7 +4,7 @@ import bcrypt
 import datetime
 import requests, json
 #from flask.ext.pymongo import PyMongo
-from flask_pymongo import PyMongo
+
 from flask import render_template
 
 app = Flask(__name__)
